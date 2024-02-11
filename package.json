@@ -1,7 +1,14 @@
 {
   "name": "vuessence",
+  "description": "'Vuessense' is an innovative Vue.js component framework project that empowers developers with seamless integration and intuitive components, streamlining development and enhancing productivity. With robust features and elegant design, Vuessense redefines Vue.js development, enabling effortless creation of dynamic, captivating user interfaces.",
   "version": "0.1.0",
-  "private": true,
+  "author": "grappphy",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grappphy/vuessence.git"
+  },
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
