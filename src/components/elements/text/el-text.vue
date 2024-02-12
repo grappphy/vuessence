@@ -18,7 +18,7 @@ export default defineComponent({
          * @type {String}
          */
         type: {
-            type: String,
+            type: String
         },
         /**
          * 태그
@@ -26,7 +26,7 @@ export default defineComponent({
          * @type {String}
          */
         tag: {
-            type: String,
+            type: String
         },
         /**
          * 크기
@@ -34,7 +34,7 @@ export default defineComponent({
          * @type {String}
          */
         size: {
-            type: String,
+            type: String
         },
         /**
          * 색상
@@ -42,7 +42,7 @@ export default defineComponent({
          * @type {String}
          */
         color: {
-            type: String,
+            type: String
         },
         /**
          * 내용
@@ -50,8 +50,8 @@ export default defineComponent({
          * @type {string}
          */
         content: {
-            type: String,
-        },
+            type: String
+        }
     },
     setup(props) {
         const classes = computed(() => {
@@ -71,8 +71,8 @@ export default defineComponent({
         });
 
         return {
-            classes,
+            classes
         };
-    },
+    }
 });
 </script>
