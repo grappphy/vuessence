@@ -57,13 +57,9 @@ export default defineComponent({
         const classes = computed(() => {
             const defaultClass = "vs-text";
 
-            const tyepClass = props.type
-                ? `${defaultClass}:${props.type}`
-                : null;
+            const tyepClass = props.type ? `${defaultClass}:${props.type}` : null;
 
-            const sizeClass = props.size
-                ? `${defaultClass}{${props.size}}`
-                : null;
+            const sizeClass = props.size ? `${defaultClass}{${props.size}}` : null;
 
             const colorClass = props.color ? `vs-color{${props.color}}` : null;
 

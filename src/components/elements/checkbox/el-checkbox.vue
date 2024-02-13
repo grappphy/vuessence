@@ -120,43 +120,25 @@ export default defineComponent({
         const classes = computed(() => {
             const defaultClass = "vs-checkbox";
 
-            const sizeClass = props.size
-                ? `${defaultClass}{${props.size}}`
-                : null;
+            const sizeClass = props.size ? `${defaultClass}{${props.size}}` : null;
 
-            const alignClass = props.align
-                ? `${defaultClass}{align-${props.align}}`
-                : null;
+            const alignClass = props.align ? `${defaultClass}{align-${props.align}}` : null;
 
             const readonlyClass = props.isReadonly ? "is-readonly" : null;
 
             const disabledClass = props.isDisabled ? "is-disabled" : null;
 
-            return [
-                defaultClass,
-                sizeClass,
-                alignClass,
-                readonlyClass,
-                disabledClass
-            ];
+            return [defaultClass, sizeClass, alignClass, readonlyClass, disabledClass];
         });
 
         // 컨트롤 클릭
         function controlClickHandler(event: Event): void {
-            emit(
-                "vs-on-click",
-                (event.target as HTMLFormElement).checked,
-                event
-            );
+            emit("vs-on-click", (event.target as HTMLFormElement).checked, event);
         }
 
         // 컨트롤 변경
         function controlChangeHandler(event: Event): void {
-            emit(
-                "vs-on-change",
-                (event.target as HTMLFormElement).checked,
-                event
-            );
+            emit("vs-on-change", (event.target as HTMLFormElement).checked, event);
         }
 
         return {

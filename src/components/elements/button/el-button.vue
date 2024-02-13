@@ -19,12 +19,7 @@
 
         <!-- 슬롯: 텍스트 -->
         <slot name="text" :default-class="'vs-button-text'">
-            <vs-el-text
-                v-if="text"
-                class="vs-button-text"
-                :tag="'span'"
-                :content="text"
-            />
+            <vs-el-text v-if="text" class="vs-button-text" :tag="'span'" :content="text" />
         </slot>
 
         <!-- 슬롯: 화살표 -->
@@ -149,13 +144,9 @@ export default defineComponent({
         const classes = computed(() => {
             const defaultClass = "vs-button";
 
-            const typeClass = props.type
-                ? `${defaultClass}:${props.type}`
-                : null;
+            const typeClass = props.type ? `${defaultClass}:${props.type}` : null;
 
-            const sizeClass = props.size
-                ? `${defaultClass}{${props.size}}`
-                : null;
+            const sizeClass = props.size ? `${defaultClass}{${props.size}}` : null;
 
             const colorClass = props.color ? `vs-button{${props.color}}` : null;
 
@@ -163,14 +154,7 @@ export default defineComponent({
 
             const disabledClass = props.isDisabled ? "is:disabled" : null;
 
-            return [
-                defaultClass,
-                typeClass,
-                sizeClass,
-                colorClass,
-                shapeClass,
-                disabledClass
-            ];
+            return [defaultClass, typeClass, sizeClass, colorClass, shapeClass, disabledClass];
         });
 
         function clickHandler(event: Event): void {

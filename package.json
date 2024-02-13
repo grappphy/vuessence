@@ -66,6 +66,7 @@
         "rules": {
             "indent": ["error", 4],
             "comma-dangle": ["error", "never"],
+            "max-len": ["error", { "code": 120 }],
             "prettier/prettier": ["error", {
                 "endOfLine": "auto"
             }]
@@ -84,6 +85,7 @@
     },
     "prettier": {
         "tabWidth": 4,
+        "printWidth": 120,
         "useTabs": false,
         "trailingComma": "none"
     },
