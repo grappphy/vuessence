@@ -25,6 +25,7 @@
 import { defineComponent, computed } from "vue";
 
 export default defineComponent({
+    name: "vs-el-checkbox",
     props: {
         /**
          * 크기
