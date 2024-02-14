@@ -144,15 +144,15 @@ export default defineComponent({
         const classes = computed(() => {
             const defaultClass = "vs-button";
 
-            const typeClass = props.type ? `${defaultClass}:${props.type}` : null;
+            const typeClass = props.type ? `${defaultClass}<${props.type}>` : null;
 
             const sizeClass = props.size ? `${defaultClass}{${props.size}}` : null;
 
-            const colorClass = props.color ? `vs-button{${props.color}}` : null;
+            const colorClass = props.color ? `${defaultClass}{${props.color}}` : null;
 
-            const shapeClass = props.shape ? `vs-button{${props.shape}}` : null;
+            const shapeClass = props.shape ? `${defaultClass}{${props.shape}}` : null;
 
-            const disabledClass = props.isDisabled ? "is:disabled" : null;
+            const disabledClass = props.isDisabled ? `${defaultClass}:disabled` : null;
 
             return [defaultClass, typeClass, sizeClass, colorClass, shapeClass, disabledClass];
         });
