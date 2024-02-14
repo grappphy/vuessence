@@ -234,65 +234,66 @@ export default defineComponent({
         // 레퍼런스
         const controlRef: Ref<HTMLInputElement> = ref(null);
 
+        // 클래스
         const classes = computed(() => {
             const defaultClass = "vs-input";
 
-            const typeClass = props.type ? `${defaultClass}:${props.type}` : null;
+            const typeClass = props.type ? `${defaultClass}<${props.type}>` : null;
 
             const sizeClass = props.size ? `${defaultClass}{${props.size}}` : null;
 
             const validationsClass = props.validation ? `${defaultClass}{${props.validation}}` : null;
 
-            const readonlyClass = props.isReadonly ? "is-readonly" : null;
+            const readonlyClass = props.isReadonly ? `${defaultClass}:readonly` : null;
 
-            const disabledClass = props.isDisabled ? "is-disabled" : null;
+            const disabledClass = props.isDisabled ? `${defaultClass}:disabled` : null;
 
             return [defaultClass, typeClass, sizeClass, validationsClass, readonlyClass, disabledClass];
         });
 
         // 컨트롤 키다운
         function controlKeydownHandler(event: Event): void {
-            emit("vs-on-keydown", (event.target as HTMLInputElement).value, event);
+            emit("on-keydown", (event.target as HTMLInputElement).value, event);
         }
 
         // 컨트롤 키프레스
         function controlKeypressHandler(event: Event): void {
-            emit("vs-on-keypress", (event.target as HTMLInputElement).value, event);
+            emit("on-keypress", (event.target as HTMLInputElement).value, event);
         }
 
         // 컨트롤 변경
         function controlChangeHandler(event: Event): void {
-            emit("vs-on-change", (event.target as HTMLInputElement).value, event);
+            emit("on-change", (event.target as HTMLInputElement).value, event);
         }
 
         // 컨트롤 포커스
         function controlFocusHandler(event: Event): void {
-            emit("vs-on-focus", (event.target as HTMLInputElement).value, event);
+            emit("on-focus", (event.target as HTMLInputElement).value, event);
         }
 
         // 컨트롤 블러
         function controlBlurHandler(event: Event): void {
-            emit("vs-on-blur", (event.target as HTMLInputElement).value, event);
+            emit("on-blur", (event.target as HTMLInputElement).value, event);
         }
 
         // 컨트롤 포커스인
         function controlFocusinHandler(event: Event): void {
-            emit("vs-on-focusin", (event.target as HTMLInputElement).value, event);
+            emit("on-focusin", (event.target as HTMLInputElement).value, event);
         }
 
         // 컨트롤 포커스아웃
         function controlFocusoutHandler(event: Event): void {
-            emit("vs-on-focusout", (event.target as HTMLInputElement).value, event);
+            emit("on-focusout", (event.target as HTMLInputElement).value, event);
         }
 
         // 클리어 버튼 클릭
         function clearButtonClickHandler(event: Event): void {
-            emit("vs-on-clear-button-click", (event.target as HTMLInputElement).value, event, controlRef.value);
+            emit("on-clear-button-click", (event.target as HTMLInputElement).value, event, controlRef.value);
         }
 
         // 검색 버튼 클릭
         function searchButtonClickHandler(event: Event): void {
-            emit("vs-on-search-button-click", controlRef.value?.value, event);
+            emit("on-search-button-click", controlRef.value?.value, event);
         }
 
         return {
