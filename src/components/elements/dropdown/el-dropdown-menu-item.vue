@@ -29,7 +29,7 @@ export default defineComponent({
         const classes = computed(() => {
             const defaultClass = "vs-dropdown-menu-item";
 
-            const activeClass = props.isActive ? "is-active" : null;
+            const activeClass = props.isActive ? `${defaultClass}:active` : null;
 
             return [defaultClass, activeClass];
         });

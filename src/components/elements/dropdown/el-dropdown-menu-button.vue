@@ -1,5 +1,5 @@
 <template>
-    <vs-el-menu-button @vs-on-click="clickHandler" class="vs-dropdown-menu-button">
+    <vs-el-menu-button @on-click="clickHandler" class="vs-dropdown-menu-button">
         <!-- 슬롯: 아이콘 -->
         <slot name="icon" :default-class="'vs-dropdown-menu-button-icon'" />
 
@@ -22,7 +22,7 @@ export default defineComponent({
     setup(props, { emit }) {
         // 버튼 클릭
         function clickHandler(): void {
-            emit("vs-on-click");
+            emit("on-click");
         }
 
         return {

@@ -70,7 +70,7 @@ export default defineComponent({
     setup(props, { emit }) {
         // 버튼 클릭
         function clickHandler(): void {
-            emit("vs-on-click");
+            emit("on-click");
         }
 
         return {

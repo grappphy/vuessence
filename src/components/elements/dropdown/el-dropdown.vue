@@ -51,13 +51,13 @@ export default defineComponent({
         const classes = computed(() => {
             const defaultClass = "vs-dropdown";
 
-            const typeClass = props.type ? `${defaultClass}:${props.type}` : null;
+            const typeClass = props.type ? `${defaultClass}<${props.type}>` : null;
 
             const sizeClass = props.size ? `${defaultClass}{${props.size}}` : null;
 
-            const activeClass = props.isActive ? "is-active" : null;
+            const activeClass = props.isActive ? `${defaultClass}:active` : null;
 
-            const disabledClass = props.isDisabled ? "is-disabled" : null;
+            const disabledClass = props.isDisabled ? `${defaultClass}:disabled` : null;
 
             return [defaultClass, typeClass, sizeClass, activeClass, disabledClass];
         });
