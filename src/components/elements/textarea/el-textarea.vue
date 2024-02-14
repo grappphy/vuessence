@@ -55,59 +55,115 @@ export default defineComponent({
         VsElIcon
     },
     props: {
-        // 유형
+        /**
+         * 유형
+         *
+         * @type {String}
+         */
         type: {
             type: String
         },
-        // 크기
+        /**
+         * 크기
+         *
+         * @type {String}
+         */
         size: {
             type: String
         },
-        // 유효성
+        /**
+         * 유효성
+         *
+         * @type {String}
+         */
         validation: {
             type: String
         },
-        // 자동 완성
+        /**
+         * 자동 완성
+         *
+         * @type {String}
+         */
         autocomplete: {
             type: String
         },
-        // 자동 포커스
+        /**
+         * 자동 포커스
+         *
+         * @type {Boolean}
+         */
         autofocus: {
             type: Boolean
         },
-        // 값
+        /**
+         * 값
+         *
+         * @type {String}
+         */
         value: {
             type: String
         },
-        // 플레이스홀더
+        /**
+         * 플레이스홀더
+         *
+         * @type {String}
+         */
         placeholder: {
             type: String
         },
-        // 최대 길이
+        /**
+         * 최대길이
+         *
+         * @type {Number}
+         */
         maxlength: {
             type: Number
         },
-        // 컨트롤 높이
+        /**
+         * 컨트롤 높이
+         *
+         * @type {Number}
+         */
         controlHeight: {
             type: Number
         },
-        // 클리어 아이콘
+        /**
+         * 클리어 아이콘
+         *
+         * @type {String}
+         */
         clearIcon: {
             type: String
         },
-        // 종료 영역 사용 여부
+        /**
+         * 종료 영역 사용 여부
+         *
+         * @type {Boolean}
+         */
         useEnd: {
             type: Boolean
         },
-        // 클리어 사용 여부
+        /**
+         * 클리어 사용 여부
+         *
+         * @type {Boolean}
+         */
         useClear: {
             type: Boolean
         },
-        // 읽기 전용 상태
+        /**
+         * 읽기 전용 상태
+         *
+         * @type {Boolean}
+         */
         isReadonly: {
             type: Boolean
         },
-        // 비활성화 상태
+        /**
+         * 비활성화 상태
+         *
+         * @type {Boolean}
+         */
         isDisabled: {
             type: Boolean
         }
@@ -120,15 +176,15 @@ export default defineComponent({
         const classes = computed(() => {
             const defaultClass = "vs-textarea";
 
-            const typeClass = props.type ? `${defaultClass}:${props.type}` : null;
+            const typeClass = props.type ? `${defaultClass}<${props.type}>` : null;
 
             const sizeClass = props.size ? `${defaultClass}{${props.size}}` : null;
 
             const validationsClass = props.validation ? `${defaultClass}{${props.validation}}` : null;
 
-            const readonlyClass = props.isReadonly ? "is-readonly" : null;
+            const readonlyClass = props.isReadonly ? `${defaultClass}:readonly` : null;
 
-            const disabledClass = props.isDisabled ? "is-disabled" : null;
+            const disabledClass = props.isDisabled ? `${defaultClass}:disabled` : null;
 
             return [defaultClass, typeClass, sizeClass, validationsClass, readonlyClass, disabledClass];
         });
@@ -142,27 +198,27 @@ export default defineComponent({
 
         // 컨트롤 키다운
         function controlKeydownHandler(event: Event): void {
-            emit("vs-on-keydown", (event.target as HTMLFormElement)?.value, event);
+            emit("on-keydown", (event.target as HTMLFormElement)?.value, event);
         }
 
         // 컨트롤 변경
         function controlChangeHandler(event: Event): void {
-            emit("vs-on-change", (event.target as HTMLFormElement)?.value, event);
+            emit("on-change", (event.target as HTMLFormElement)?.value, event);
         }
 
         // 컨트롤 포커스
         function controlFocusHandler(event: Event): void {
-            emit("vs-on-focus", (event.target as HTMLFormElement)?.value, event);
+            emit("on-focus", (event.target as HTMLFormElement)?.value, event);
         }
 
         // 컨트롤 블러
         function controlBlurHandler(event: Event): void {
-            emit("vs-on-blur", (event.target as HTMLFormElement)?.value, event);
+            emit("on-blur", (event.target as HTMLFormElement)?.value, event);
         }
 
         // 클리어 버튼 클릭
         function clearButtonClickHandler(event: Event): void {
-            emit("vs-on-clear-button-click", (event.target as HTMLFormElement)?.value, event, controlRef.value);
+            emit("on-clear-button-click", (event.target as HTMLFormElement)?.value, event, controlRef.value);
         }
 
         return {
