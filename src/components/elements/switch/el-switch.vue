@@ -134,21 +134,21 @@ export default defineComponent({
 
             const reverseClass = props.useReverse ? `${defaultClass}{reverse}` : "";
 
-            const readonlyClass = props.isReadonly ? "is-readonly" : null;
+            const readonlyClass = props.isReadonly ? `${defaultClass}:readonly` : null;
 
-            const disabledClass = props.isDisabled ? "is-disabled" : null;
+            const disabledClass = props.isDisabled ? `${defaultClass}:disabled` : null;
 
             return [defaultClass, sizeClass, alignClass, reverseClass, readonlyClass, disabledClass];
         });
 
         // 컨트롤 클릭
         function controlClickHandler(event: Event): void {
-            emit("vs-on-click", (event.target as HTMLFormElement).checked, event);
+            emit("on-click", (event.target as HTMLFormElement).checked, event);
         }
 
         // 컨트롤 변경
         function controlChangeHandler(event: Event): void {
-            emit("vs-on-change", (event.target as HTMLFormElement).checked, event);
+            emit("on-change", (event.target as HTMLFormElement).checked, event);
         }
 
         return {
