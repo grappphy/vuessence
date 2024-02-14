@@ -55,9 +55,9 @@ export default defineComponent({
         const classes = computed(() => {
             const defaultClass = "vs-symbol";
 
-            const typeClass = props.type ? `vs-symbol:${props.type}` : null;
+            const typeClass = props.type ? `${defaultClass}<${props.type}>` : null;
 
-            const sizeClass = props.size ? `vs-symbol{${props.size}}` : null;
+            const sizeClass = props.size ? `${defaultClass}{${props.size}}` : null;
 
             const colorClass = props.color ? `vs-color{${props.color}}` : null;
 
@@ -86,7 +86,7 @@ export default defineComponent({
 
         // 클릭
         function clickHandler(): void {
-            emit("vs-on-click");
+            emit("on-click");
         }
 
         return {
