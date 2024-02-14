@@ -144,7 +144,7 @@ export default defineComponent({
         const classes = computed(() => {
             const defaultClass = "vs-dialog";
 
-            const typeClass = props.type ? `${defaultClass}:${props.type}` : null;
+            const typeClass = props.type ? `${defaultClass}<${props.type}>` : null;
 
             const sizeClass = props.size ? `${defaultClass}{${props.size}}` : null;
 
@@ -157,7 +157,7 @@ export default defineComponent({
 
         // 클릭
         function clickHandler(event: Event): void {
-            emit("vs-on-click", event);
+            emit("on-click", event);
         }
 
         return {
