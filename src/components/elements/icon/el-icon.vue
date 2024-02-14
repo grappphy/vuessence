@@ -39,7 +39,7 @@ export default defineComponent({
         const classes = computed(() => {
             const defaultClass = "vs-icon";
 
-            const sizeClass = props.size ? `vs-icon{${props.size}}` : null;
+            const sizeClass = props.size ? `${defaultClass}{${props.size}}` : null;
 
             const colorClass = props.color ? `vs-color{${props.color}}` : null;
 
