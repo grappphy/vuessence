@@ -112,7 +112,7 @@ export default defineComponent({
         /**
          * 자동 포커스
          *
-         * @type {String}
+         * @type {Boolean}
          */
         autofocus: {
             type: Boolean
