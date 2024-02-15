@@ -75,7 +75,7 @@
 import { defineComponent, computed } from "vue";
 
 // Elements
-import VsElButtons from "../button/el-button.vue";
+import VsElButtons from "../buttons/el-buttons.vue";
 
 export default defineComponent({
     name: "vs-el-dialog",
